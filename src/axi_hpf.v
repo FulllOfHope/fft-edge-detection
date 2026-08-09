@@ -24,7 +24,7 @@
 
 module axi_hpf #(
     parameter N = 1024,
-    parameter CUTOFF_SQ = 900 // Default Cutoff Radius 30 (30^2 = 900)
+    parameter CUTOFF_SQ = 3600 // Default Cutoff Radius 30 (30^2 = 900)
 )(
     input  wire        aclk,
     input  wire        aresetn,

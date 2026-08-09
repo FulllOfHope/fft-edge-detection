@@ -39,17 +39,17 @@ module delay_line #(
             integer i;
             
            always @(posedge clk) begin 
-    if (!reset) begin
-        for (i = 0; i < DEPTH; i = i + 1)
-            mem[i] <= 32'd0;
-    end else begin
-        for (i = DEPTH-1; i > 0; i = i - 1)
-            mem[i] <= mem[i-1];
-        mem[0] <= {in_r, in_i};
-    end
-end
-    assign {out_r, out_i} = mem[DEPTH-1];
+              if (!reset) begin
+                for (i = 0; i < DEPTH; i = i + 1)
+                  mem[i] <= 32'd0;
+              end else begin
+                     for (i = DEPTH-1; i > 0; i = i - 1)
+                         mem[i] <= mem[i-1];
+                         mem[0] <= {in_r, in_i};
+              end
+           end
+          assign {out_r, out_i} = mem[DEPTH-1];
     
-    end
+         end
     endgenerate
 endmodule
